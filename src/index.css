@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Perfect Print Sheet overrides for PDF and A4 printer outputs */
+@media print {
+  /* Hide all generic elements */
+  body {
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+    zoom: 98%;
+  }
+
+  /* Force page size layout to standard A4 paper dimensions */
+  @page {
+    size: A4 portrait;
+    margin: 15mm 15mm 15mm 15mm;
+  }
+
+  /* Make sure background watermarks and colors are retained */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Specifically target print section and expand it */
+  #print-invoice-area {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 210mm !important;
+    min-h: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure page breaks don't tear tables or signatures */
+  table, tr, td, th {
+    page-break-inside: avoid !important;
+  }
+
+  .invoice-print-surface {
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+  }
+}
+

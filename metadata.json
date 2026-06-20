@@ -1,0 +1,6 @@
+{
+  "name": "LevFlow",
+  "description": "Invoice with impact. Leverage your business. An ultra-professional, enterprise-grade, offline Invoice Management System with custom drawing signature pads, automated VAT/Tax generators, and BI dashboard reporting.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
